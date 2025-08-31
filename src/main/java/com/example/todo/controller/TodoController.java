@@ -20,8 +20,8 @@ public class TodoController {
 
 
     @GetMapping("/")
-    public List<Todo> getTodos(@RequestParam(required = false) String title){
-        return todoService.getTodoList(title);
+    public List<Todo> getTodos(@RequestParam(required = false) String title,@RequestParam(required = false) String status){
+        return todoService.getTodoList(title,status);
     }
 
 

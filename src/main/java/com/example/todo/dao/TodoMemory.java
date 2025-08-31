@@ -16,7 +16,7 @@ public class TodoMemory implements TodoDao{
     }
 
     @Override
-    public List<Todo> getTodoLists(String title) {
+    public List<Todo> getTodoLists(String title, String status) {
         return List.of();
     }
 

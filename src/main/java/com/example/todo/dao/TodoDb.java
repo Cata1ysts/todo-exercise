@@ -1,6 +1,7 @@
 package com.example.todo.dao;
 
 
+
 import com.example.todo.entity.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,9 +18,16 @@ public class TodoDb implements TodoDao{
 
 
     @Override
-    public List<Todo> getTodoLists(String title) {
-        if(title==null)return jpaTodo.findAll();
-        return jpaTodo.findByTitleContaining(title);
+    public List<Todo> getTodoLists(String title, String status) {
+        if (status != null && title != null) {
+            return jpaTodo.findByStatusAndTitle(status, title);
+        } else if (status != null) {
+            return jpaTodo.findByStatus(status);
+        } else if (title != null) {
+            return jpaTodo.findByTitleContaining(title);
+        } else {
+            return jpaTodo.findAll();
+        }
 
     }
 

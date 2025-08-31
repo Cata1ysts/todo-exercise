@@ -13,4 +13,5 @@ public interface JpaTodo extends JpaRepository<Todo, Integer> {
     List<Todo> findByStatus(String status);
     List<Todo> findByTitleContaining(String title);
 
+    List<Todo> findByStatusAndTitle(String status, String title);
 }

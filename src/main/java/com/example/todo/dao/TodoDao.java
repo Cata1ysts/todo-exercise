@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface TodoDao {
-    public List<Todo> getTodoLists(String title);
+    public List<Todo> getTodoLists(String title, String status);
     public Todo getTodoById(int id);
     public Todo save(Todo todo);
     public Todo updateTodoById(Todo todo);

@@ -16,8 +16,8 @@ public class TodoService {
         this.todoDao=todoDao;
     }
 
-    public List<Todo> getTodoList(String title) {
-        return todoDao.getTodoLists(title);
+    public List<Todo> getTodoList(String title, String status) {
+        return todoDao.getTodoLists(title,status);
     }
 
     public Todo getTodoById(int id) {
