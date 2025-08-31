@@ -6,7 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface JpaTodo extends JpaRepository<Todo, Integer> {
+    List<Todo> findByStatus(String status);
+    List<Todo> findByTitleContaining(String title);
 
 }
