@@ -22,12 +22,12 @@ public class TodoController {
 
 
     @GetMapping("/{id}")
-    public Todo getTodos(@PathVariable int id){
+    public Todo getTodoById(@PathVariable int id){
         return todoService.getTodoById(id);
     }
 
     @PostMapping("/")
-    public Todo getTodos(@RequestBody Todo todo){
+    public Todo addTodo(@RequestBody Todo todo){
         return todoService.newTodo(todo);
     }
 
