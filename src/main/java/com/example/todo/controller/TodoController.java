@@ -15,22 +15,18 @@ public class TodoController {
     private TodoService todoService;
 
 
-    @GetMapping("")
-    public List<Todo> getTodosByTitle(@RequestParam String title){
+    @GetMapping("/")
+    public List<Todo> getTodos(@RequestParam(required = false) String title){
         return todoService.getTodoList(title);
     }
 
-    @GetMapping("")
-    public List<Todo> getTodos(){
-        return todoService.getTodoList();
-    }
 
     @GetMapping("/{id}")
     public Todo getTodos(@PathVariable int id){
         return todoService.getTodoById(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public Todo getTodos(@RequestBody Todo todo){
         return todoService.newTodo(todo);
     }

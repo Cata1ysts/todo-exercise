@@ -1,18 +1,18 @@
 package com.example.todo.dao;
 
-
 import com.example.todo.entity.Todo;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 @Repository
-public class TodoDb implements TodoDao{
-    JpaTodo jpaTodo;
+public class TodoMemory implements TodoDao{
+    private final Map<Integer,Todo> todotable;
 
-    public TodoDb(JpaTodo jpaTodo) {
-        this.jpaTodo = jpaTodo;
+    public TodoMemory(Map<Integer, Todo> todotable) {
+        this.todotable = todotable;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.todo.service;
 
 import com.example.todo.dao.TodoDao;
+import com.example.todo.dao.TodoMemory;
 import com.example.todo.entity.Todo;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +9,11 @@ import java.util.List;
 
 @Service
 public class TodoService {
-
-    private TodoDao todoDao;
-
-    public List<Todo> getTodoList() {
-        return null;
+    private final TodoDao todoDao;
+    public TodoService(TodoMemory todoDao){
+        this.todoDao=todoDao;
     }
+
     public List<Todo> getTodoList(String title) {
         return null;
     }

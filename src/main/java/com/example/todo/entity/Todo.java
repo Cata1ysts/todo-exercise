@@ -1,9 +1,11 @@
 package com.example.todo.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Todo {
+    @Id
     private Integer id;
     private String title;
     private String status;
