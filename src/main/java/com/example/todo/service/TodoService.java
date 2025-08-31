@@ -5,8 +5,10 @@ import com.example.todo.dao.TodoDb;
 import com.example.todo.dao.TodoMemory;
 import com.example.todo.entity.Todo;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Service
@@ -40,5 +42,10 @@ public class TodoService {
         Todo todoById = todoDao.getTodoById(id);
         if(todoById==null) throw new IllegalArgumentException("Todo index invalid !");
         todoDao.deleteTodoById(id);
+    }
+
+    public List<Todo> getTodosByPage(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return todoDao.getByPage(pageRequest);
     }
 }

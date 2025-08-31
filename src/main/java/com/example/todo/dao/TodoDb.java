@@ -4,8 +4,11 @@ package com.example.todo.dao;
 
 import com.example.todo.entity.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Repository
@@ -49,5 +52,10 @@ public class TodoDb implements TodoDao{
     @Override
     public void deleteTodoById(int id) {
         jpaTodo.deleteById(id);
+    }
+
+    @Override
+    public List<Todo> getByPage(PageRequest pageRequest) {
+        return jpaTodo.findAll(pageRequest).toList();
     }
 }

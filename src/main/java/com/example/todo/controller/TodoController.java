@@ -44,4 +44,9 @@ public class TodoController {
     public void deleteTodoById(@PathVariable int id){
          todoService.deleteTodoById(id);
     }
+
+    @GetMapping("/page")
+    public List<Todo> getTodosByPage(@RequestParam int page, @RequestParam int size) {
+        return todoService.getTodosByPage(page, size);
+    }
 }

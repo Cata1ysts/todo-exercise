@@ -2,8 +2,10 @@ package com.example.todo.dao;
 
 import com.example.todo.entity.Todo;
 import jakarta.persistence.criteria.CriteriaBuilder;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
+import java.awt.print.Pageable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,5 +40,10 @@ public class TodoMemory implements TodoDao{
     @Override
     public void deleteTodoById(int id) {
 
+    }
+
+    @Override
+    public List<Todo> getByPage(PageRequest pageRequest) {
+        return List.of();
     }
 }
