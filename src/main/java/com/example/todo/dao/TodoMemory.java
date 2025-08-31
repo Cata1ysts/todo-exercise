@@ -16,11 +16,6 @@ public class TodoMemory implements TodoDao{
     }
 
     @Override
-    public List<Todo> getTodoLists() {
-        return List.of();
-    }
-
-    @Override
     public List<Todo> getTodoLists(String title) {
         return List.of();
     }
@@ -31,12 +26,12 @@ public class TodoMemory implements TodoDao{
     }
 
     @Override
-    public Todo newTodo(Todo todo) {
+    public Todo save(Todo todo) {
         return null;
     }
 
     @Override
-    public Todo updateTodoById(int id, Todo todo) {
+    public Todo updateTodoById(Todo todo) {
         return null;
     }
 

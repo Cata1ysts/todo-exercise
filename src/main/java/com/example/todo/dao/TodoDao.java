@@ -8,11 +8,9 @@ import java.util.List;
 
 @Repository
 public interface TodoDao {
-
-    public List<Todo> getTodoLists();
     public List<Todo> getTodoLists(String title);
     public Todo getTodoById(int id);
-    public Todo newTodo(Todo todo);
-    public Todo updateTodoById(int id,Todo todo);
+    public Todo save(Todo todo);
+    public Todo updateTodoById(Todo todo);
     public void deleteTodoById(int id);
 }

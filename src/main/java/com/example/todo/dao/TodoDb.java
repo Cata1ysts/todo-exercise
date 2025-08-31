@@ -15,33 +15,31 @@ public class TodoDb implements TodoDao{
         this.jpaTodo = jpaTodo;
     }
 
-    @Override
-    public List<Todo> getTodoLists() {
-        return List.of();
-    }
 
     @Override
     public List<Todo> getTodoLists(String title) {
-        return List.of();
+        if(title==null)return jpaTodo.findAll();
+        return jpaTodo.findByTitleContaining(title);
+
     }
 
     @Override
     public Todo getTodoById(int id) {
-        return null;
+        return jpaTodo.findById(id).orElse(null);
     }
 
     @Override
-    public Todo newTodo(Todo todo) {
-        return null;
+    public Todo save(Todo todo) {
+        return jpaTodo.save(todo);
     }
 
     @Override
-    public Todo updateTodoById(int id, Todo todo) {
-        return null;
+    public Todo updateTodoById(Todo todo) {
+       return jpaTodo.save(todo);
     }
 
     @Override
     public void deleteTodoById(int id) {
-
+        jpaTodo.deleteById(id);
     }
 }
